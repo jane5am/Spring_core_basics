@@ -14,8 +14,11 @@ public class MemberApp {
 //        AppConfig appConfig = new AppConfig();
 //        MemberService memberService = appConfig.memberService();
 
-        // 기존에 AppConfig에서 직접 찾아오던걸 스프링컨테이너에서 가져온다
+        // ApplicationContext 얘가 스프링 컨테이너라고 생각하면 된다
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        // 기존에 AppConfig에서 직접 찾아오던걸 스프링컨테이너에서 가져온다
+        // 스프링컨테이너에는 @Bean붙은 메소드의 이름으로 등록되어있어서 "memberService"라는 이름으로 꺼내는 것
+        // MemberService.class 이건 타
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
 
         Member member = new Member(1L, "memberA", Grade.VIP);
