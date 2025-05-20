@@ -16,9 +16,4 @@
 
   <bean id="discountPolicy" class="hello.core.discount.RateDiscountPolicy">
   </bean>
-
-  @Bean
-  public DiscountPolicy discountPolicy() {
-  return new RateDiscountPolicy();
-  }
 </beans>
